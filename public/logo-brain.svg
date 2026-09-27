@@ -1,0 +1,87 @@
+<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="brainGlowAsset" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="1.6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    <linearGradient id="brainHexRimAsset" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#475569" />
+      <stop offset="50%" stopColor="#94A3B8" />
+      <stop offset="100%" stopColor="#334155" />
+    </linearGradient>
+  </defs>
+
+  <!-- Outer Rounded Hexagon with Bottom-Right Gap -->
+  <path
+    d="M 50 9 L 83 28 L 83 58 M 73 80 L 50 91 L 17 72 L 17 28 Z"
+    stroke="url(#brainHexRimAsset)"
+    strokeWidth="4.2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    opacity="0.95"
+  />
+  <path
+    d="M 50 14 L 78 30 L 78 54 M 69 76 L 50 86 L 22 70 L 22 30 Z"
+    stroke="#0088FF"
+    strokeWidth="1.2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    opacity="0.5"
+  />
+
+  <!-- Neural Network & Brain Cortex -->
+  <g filter="url(#brainGlowAsset)">
+    <!-- Left Synaptic Network Lines -->
+    <line x1="28" y1="48" x2="38" y2="34" stroke="#0070F3" strokeWidth="2.2" />
+    <line x1="28" y1="48" x2="42" y2="62" stroke="#0070F3" strokeWidth="2.2" />
+    <line x1="38" y1="34" x2="48" y2="46" stroke="#0070F3" strokeWidth="2" />
+    <line x1="42" y1="62" x2="48" y2="46" stroke="#0070F3" strokeWidth="2" />
+
+    <!-- Cross Connections -->
+    <line x1="38" y1="34" x2="52" y2="28" stroke="#0088FF" strokeWidth="1.8" />
+    <line x1="48" y1="46" x2="58" y2="42" stroke="#0088FF" strokeWidth="1.8" />
+    <line x1="48" y1="46" x2="58" y2="54" stroke="#0088FF" strokeWidth="1.8" />
+    <line x1="42" y1="62" x2="54" y2="68" stroke="#0088FF" strokeWidth="1.8" />
+
+    <!-- Right Cerebral Brain Folds -->
+    <path
+      d="M 50 24
+         C 62 23 72 29 72 37
+         C 72 42 68 45 64 47
+         C 71 49 73 57 70 63
+         C 67 69 58 74 50 74
+         C 48 74 48 70 50 67
+         C 53 64 53 60 48 57
+         C 45 55 45 49 48 46
+         C 52 42 51 36 47 34"
+      stroke="#0088FF"
+      strokeWidth="2.2"
+      strokeLinecap="round"
+      fill="none"
+    />
+    <path
+      d="M 58 33 C 65 35 65 41 58 42 M 58 47 C 65 49 64 57 56 59 M 54 62 C 60 64 59 70 52 70"
+      stroke="#00F0FF"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      fill="none"
+      opacity="0.85"
+    />
+
+    <!-- Nodes with bright cores -->
+    <circle cx="28" cy="48" r="4.2" fill="#0070F3" />
+    <circle cx="28" cy="48" r="2" fill="#FFFFFF" />
+
+    <circle cx="38" cy="34" r="3.6" fill="#0070F3" />
+    <circle cx="38" cy="34" r="1.6" fill="#FFFFFF" />
+
+    <circle cx="42" cy="62" r="3.6" fill="#0070F3" />
+    <circle cx="42" cy="62" r="1.6" fill="#FFFFFF" />
+
+    <circle cx="48" cy="46" r="3" fill="#00A3FF" />
+    <circle cx="48" cy="46" r="1.4" fill="#FFFFFF" />
+
+    <circle cx="52" cy="28" r="2.5" fill="#00F0FF" />
+    <circle cx="50" cy="74" r="2.5" fill="#00F0FF" />
+  </g>
+</svg>

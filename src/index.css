@@ -1,0 +1,129 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-main: #070D1F;
+    --bg-surface: #0A1122;
+    --accent-blue: #0088FF;
+    --accent-cyan: #00F0FF;
+    --accent-glow: rgba(0, 136, 255, 0.4);
+  }
+
+  body {
+    background-color: #070D1F;
+    color: #F1F5F9;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', 'Plus Jakarta Sans', sans-serif;
+  }
+}
+
+/* Custom Circuit Grid Backgrounds */
+.circuit-bg {
+  background-color: #070D1F;
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(0, 136, 255, 0.15) 0%, transparent 60%),
+    linear-gradient(rgba(0, 136, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 136, 255, 0.05) 1px, transparent 1px);
+  background-size: 100% 100%, 40px 40px, 40px 40px;
+}
+
+.circuit-subtle {
+  background-color: #0A1122;
+  background-image: 
+    linear-gradient(rgba(0, 136, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 136, 255, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Neon Glow & Tech Highlights */
+.neon-glow-blue {
+  box-shadow: 0 0 20px -2px rgba(0, 136, 255, 0.45), 0 0 8px 0 rgba(0, 240, 255, 0.3);
+}
+
+.neon-glow-subtle {
+  box-shadow: 0 0 15px -3px rgba(0, 136, 255, 0.25);
+}
+
+.neon-border {
+  border-color: rgba(0, 136, 255, 0.5);
+  box-shadow: 0 0 15px rgba(0, 136, 255, 0.25);
+}
+
+.neon-text-blue {
+  text-shadow: 0 0 12px rgba(0, 136, 255, 0.6);
+}
+
+/* Custom Range Slider */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+input[type="range"]:focus {
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  background: #0f1d3a;
+  border-radius: 9999px;
+  height: 10px;
+  border: 1px solid rgba(0, 136, 255, 0.3);
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  margin-top: -7px;
+  background: #0088FF;
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  border: 3px solid #ffffff;
+  box-shadow: 0 0 15px #0088FF, 0 0 30px #0088FF;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 22px #00F0FF, 0 0 35px #0088FF;
+}
+
+input[type="range"]::-moz-range-track {
+  background: #0f1d3a;
+  border-radius: 9999px;
+  height: 10px;
+  border: 1px solid rgba(0, 136, 255, 0.3);
+}
+
+input[type="range"]::-moz-range-thumb {
+  background: #0088FF;
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  border: 3px solid #ffffff;
+  box-shadow: 0 0 15px #0088FF, 0 0 30px #0088FF;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #070D1F;
+}
+::-webkit-scrollbar-thumb {
+  background: #1B294B;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #253966;
+}
+

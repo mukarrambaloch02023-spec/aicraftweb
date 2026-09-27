@@ -1,0 +1,120 @@
+<svg viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="cyberBlueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#00E5FF" />
+      <stop offset="40%" stopColor="#0070F3" />
+      <stop offset="100%" stopColor="#0051CC" />
+    </linearGradient>
+  </defs>
+
+  <!-- === OUTER SEGMENTED HEXAGON WITH EXTENDED PCB PERIPHERALS === -->
+  <g transform="translate(0, 0)">
+    <!-- Hexagon Outer Traces -->
+    <path d="M150 20 L245 75 L245 130" stroke="#0070F3" strokeWidth="4.5" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M245 170 L245 225 L150 280" stroke="#0070F3" strokeWidth="4.5" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M150 280 L55 225 L55 170" stroke="#0070F3" strokeWidth="4.5" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M55 130 L55 75 L150 20" stroke="#0070F3" strokeWidth="4.5" strokeLinecap="round" strokeLinejoin="round" />
+
+    <!-- Corner Node Terminals -->
+    <circle cx="150" cy="20" r="5" fill="#070D1F" stroke="#0070F3" strokeWidth="3" />
+    <circle cx="245" cy="75" r="5" fill="#070D1F" stroke="#0070F3" strokeWidth="3" />
+    <circle cx="245" cy="225" r="5" fill="#070D1F" stroke="#0070F3" strokeWidth="3" />
+    <circle cx="150" cy="280" r="5" fill="#070D1F" stroke="#0070F3" strokeWidth="3" />
+    <circle cx="55" cy="225" r="5" fill="#070D1F" stroke="#0070F3" strokeWidth="3" />
+    <circle cx="55" cy="75" r="5" fill="#070D1F" stroke="#0070F3" strokeWidth="3" />
+
+    <!-- Top-Left Outer Peripherals -->
+    <path d="M125 15 L95 32" stroke="#0070F3" strokeWidth="2.5" />
+    <circle cx="95" cy="32" r="3" fill="#0070F3" />
+    <circle cx="120" cy="30" r="2" fill="#0070F3" />
+    <circle cx="115" cy="33" r="2" fill="#0070F3" />
+    <circle cx="110" cy="36" r="2" fill="#0070F3" />
+    <circle cx="105" cy="39" r="2" fill="#0070F3" />
+    <rect x="70" y="45" width="10" height="3.5" rx="1" fill="#0070F3" />
+    <path d="M60 58 L45 66" stroke="#0070F3" strokeWidth="2" />
+    <circle cx="45" cy="66" r="2.5" fill="#0070F3" />
+
+    <!-- Top-Right Outer Peripherals -->
+    <path d="M175 16 L205 33" stroke="#0070F3" strokeWidth="2.5" />
+    <circle cx="205" cy="33" r="3" fill="#0070F3" />
+    <line x1="170" y1="28" x2="170" y2="40" stroke="#0070F3" strokeWidth="2" />
+    <line x1="175" y1="31" x2="175" y2="43" stroke="#0070F3" strokeWidth="2" />
+    <line x1="180" y1="34" x2="180" y2="46" stroke="#0070F3" strokeWidth="2" />
+    <line x1="185" y1="37" x2="185" y2="49" stroke="#0070F3" strokeWidth="2" />
+    <path d="M210 42 L230 53 L240 53" stroke="#0070F3" strokeWidth="2" />
+    <circle cx="240" cy="53" r="2.5" fill="#0070F3" />
+
+    <!-- Left Edge Peripherals -->
+    <path d="M48 100 L35 100 L35 125 L48 125" stroke="#0070F3" strokeWidth="2" />
+    <circle cx="48" cy="100" r="2.5" fill="#0070F3" />
+    <circle cx="48" cy="125" r="2.5" fill="#0070F3" />
+    <line x1="32" y1="85" x2="44" y2="85" stroke="#0070F3" strokeWidth="1.5" />
+    <line x1="32" y1="92" x2="44" y2="92" stroke="#0070F3" strokeWidth="1.5" />
+    <line x1="36" y1="81" x2="36" y2="96" stroke="#0070F3" strokeWidth="1.5" />
+    <line x1="40" y1="81" x2="40" y2="96" stroke="#0070F3" strokeWidth="1.5" />
+    <rect x="28" y="138" width="5" height="14" rx="1" fill="#0070F3" />
+
+    <!-- Right Edge Peripherals -->
+    <path d="M252 100 L265 100 L265 125 L252 125" stroke="#0070F3" strokeWidth="2" />
+    <circle cx="252" cy="100" r="2.5" fill="#0070F3" />
+    <circle cx="252" cy="125" r="2.5" fill="#0070F3" />
+    <line x1="256" y1="205" x2="268" y2="205" stroke="#0070F3" strokeWidth="1.5" />
+    <line x1="256" y1="212" x2="268" y2="212" stroke="#0070F3" strokeWidth="1.5" />
+    <line x1="260" y1="201" x2="260" y2="216" stroke="#0070F3" strokeWidth="1.5" />
+    <line x1="264" y1="201" x2="264" y2="216" stroke="#0070F3" strokeWidth="1.5" />
+    <rect x="267" y="115" width="5" height="14" rx="1" fill="#0070F3" />
+
+    <!-- Bottom Peripherals -->
+    <path d="M225 240 L205 252" stroke="#0070F3" strokeWidth="2.5" />
+    <circle cx="205" cy="252" r="3" fill="#0070F3" />
+    <circle cx="215" cy="260" r="2" fill="#0070F3" />
+    <circle cx="210" cy="263" r="2" fill="#0070F3" />
+    <circle cx="205" cy="266" r="2" fill="#0070F3" />
+    <path d="M125 267 L105 255" stroke="#0070F3" strokeWidth="2.5" />
+    <circle cx="105" cy="255" r="3" fill="#0070F3" />
+    <line x1="130" y1="255" x2="130" y2="268" stroke="#0070F3" strokeWidth="2" />
+    <line x1="135" y1="258" x2="135" y2="271" stroke="#0070F3" strokeWidth="2" />
+    <line x1="140" y1="261" x2="140" y2="274" stroke="#0070F3" strokeWidth="2" />
+
+    <!-- === LETTERS "A" & "W" (Bold Cobalt Blue with PCB Internal Circuit Lines) === -->
+    <path d="M60 220 L108 65 L144 65 L158 110 L140 165 L106 165 L94 205 L130 205 L135 220 Z" fill="url(#cyberBlueGrad)" />
+    <polygon points="112,88 134,148 100,148" fill="#070D1F" />
+    
+    <!-- A Microchip Processor -->
+    <rect x="110" y="118" width="14" height="14" rx="2" fill="#070D1F" stroke="#00F0FF" strokeWidth="1.5" />
+    <circle cx="117" cy="125" r="2" fill="#0070F3" />
+    <line x1="106" y1="120" x2="110" y2="120" stroke="#00F0FF" strokeWidth="1.2" />
+    <line x1="106" y1="123.5" x2="110" y2="123.5" stroke="#00F0FF" strokeWidth="1.2" />
+    <line x1="106" y1="127" x2="110" y2="127" stroke="#00F0FF" strokeWidth="1.2" />
+    <line x1="106" y1="130.5" x2="110" y2="130.5" stroke="#00F0FF" strokeWidth="1.2" />
+    <line x1="124" y1="120" x2="128" y2="120" stroke="#00F0FF" strokeWidth="1.2" />
+    <line x1="124" y1="123.5" x2="128" y2="123.5" stroke="#00F0FF" strokeWidth="1.2" />
+    <line x1="124" y1="127" x2="128" y2="127" stroke="#00F0FF" strokeWidth="1.2" />
+    <line x1="124" y1="130.5" x2="128" y2="130.5" stroke="#00F0FF" strokeWidth="1.2" />
+    <path d="M78 208 L88 175 L98 175 L106 148" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" />
+    <circle cx="78" cy="208" r="2.5" fill="#FFFFFF" />
+    <circle cx="106" cy="148" r="2.5" fill="#FFFFFF" />
+
+    <!-- Letter W -->
+    <path d="M135 65 L170 185 L200 65 L240 65 L205 220 L168 220 L145 135 L128 220 L108 220 L125 140 Z" fill="url(#cyberBlueGrad)" />
+    <path d="M148 95 L160 145 L175 145 L188 95" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" />
+    <circle cx="148" cy="95" r="2.5" fill="#FFFFFF" />
+    <circle cx="160" cy="145" r="2.5" fill="#FFFFFF" />
+    <circle cx="175" cy="145" r="2.5" fill="#FFFFFF" />
+    <circle cx="188" cy="95" r="2.5" fill="#FFFFFF" />
+
+    <!-- W Microchip Processor -->
+    <rect x="210" y="112" width="14" height="14" rx="2" fill="#070D1F" stroke="#00F0FF" strokeWidth="1.5" />
+    <circle cx="217" cy="119" r="2" fill="#0070F3" />
+    <line x1="206" y1="114" x2="210" y2="114" stroke="#00F0FF" strokeWidth="1.2" />
+    <line x1="206" y1="117.5" x2="210" y2="117.5" stroke="#00F0FF" strokeWidth="1.2" />
+    <line x1="206" y1="121" x2="210" y2="121" stroke="#00F0FF" strokeWidth="1.2" />
+    <line x1="206" y1="124.5" x2="210" y2="124.5" stroke="#00F0FF" strokeWidth="1.2" />
+    <line x1="224" y1="114" x2="228" y2="114" stroke="#00F0FF" strokeWidth="1.2" />
+    <line x1="224" y1="117.5" x2="228" y2="117.5" stroke="#00F0FF" strokeWidth="1.2" />
+    <line x1="224" y1="121" x2="228" y2="121" stroke="#00F0FF" strokeWidth="1.2" />
+    <line x1="224" y1="124.5" x2="228" y2="124.5" stroke="#00F0FF" strokeWidth="1.2" />
+    <path d="M217 130 L217 150 L200 195" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" />
+    <circle cx="200" cy="195" r="2.5" fill="#FFFFFF" />
+  </g>
+</svg>
