@@ -49,21 +49,3 @@ export const Hero = ({ onOrderClick }: any) => {
         <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/60 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
       </button>
 
-      {/* Stats */}
-      <div className="anim-4 mt-16 w-full max-w-[680px] grid grid-cols-3 gap-3 p-2 rounded-[24px] bg-white/[0.04] border border-white/[0.08] backdrop-blur-2xl">
-        <div className="py-4 rounded-[16px] bg-white/[0.03] border border-white/[0.05] hover:bg-white/[0.06] transition-colors">
-          <div className="text-2xl font-black text-white">500+</div>
-          <div className="text-[11px] text-white/40 mt-1">Projects</div>
-        </div>
-        <div className="py-4 rounded-[16px] bg-white/[0.03] border border-white/[0.05] hover:bg-white/[0.06] transition-colors">
-          <div className="text-2xl font-black text-white">4.9★</div>
-          <div className="text-[11px] text-white/40 mt-1">Rating</div>
-        </div>
-        <div className="py-4 rounded-[16px] bg-white/[0.03] border border-white/[0.05] hover:bg-white/[0.06] transition-colors">
-          <div className="text-2xl font-black text-white">24/7</div>
-          <div className="text-[11px] text-white/40 mt-1">Support</div>
-        </div>
-      </div>
-    </section>
-  );
-};
