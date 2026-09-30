@@ -1,46 +1,38 @@
-"use client"
-import { useEffect, useRef, useState } from "react"
-
-function Reveal({ children }: { children: React.ReactNode }) {
-  const [show, setShow] = useState(false)
-  const ref = useRef<HTMLDivElement>(null)
-  useEffect(() => {
-    const obs = new IntersectionObserver(([e]) => {
-      if (e.isIntersecting) setShow(true)
-    }, { threshold: 0.15 })
-    if (ref.current) obs.observe(ref.current)
-    return () => obs.disconnect()
-  }, [])
+export const Hero = ({ onOrderClick }: any) => {
   return (
-    <div ref={ref} style={{
-      opacity: show? 1 : 0,
-      transform: show? "translateY(0px)" : "translateY(60px)",
-      transition: "all 0.8s ease-out"
-    }}>
-      {children}
-    </div>
-  )
-}
+    <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 overflow-hidden bg-[#070A14]">
 
-export default function App() {
-  return (
-    <div style={{ background: "black", color: "white" }}>
-      <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", textAlign: "center" }}>
-        <Reveal>
-          <h1 style={{ fontSize: "80px", fontWeight: "900", lineHeight: "0.9" }}>
-            WE CREATE<br />DIGITAL<br />EXPERIENCES
-          </h1>
-        </Reveal>
+      <style>{`
+        @keyframes float1 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(0,-30px)} }
+        @keyframes float2 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(0,30px)} }
+      `}</style>
+
+      {/* Pehle wala same background - bas ab hilega */}
+      <div style={{animation:'float1 6s ease-in-out infinite'}} className="absolute top-[-10%] left-[20%] w-[600px] h-[600px] bg-[#6d28d9]/30 rounded-full blur-[150px] pointer-events-none"></div>
+      <div style={{animation:'float2 7s ease-in-out infinite'}} className="absolute bottom-[-10%] right-[15%] w-[600px] h-[600px] bg-[#2563eb]/25 rounded-full blur-[150px] pointer-events-none"></div>
+
+      {/* Center glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[#070A14] blur-[50px] pointer-events-none"></div>
+
+      <div className="relative z-10 inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.06] border border-white/10 text-[10px] tracking-widest text-white/60 mb-8">
+        ✨ AI POWERED AGENCY
       </div>
 
-      <div style={{ minHeight: "100vh", display: "flex", justifyContent: "center", alignItems: "center" }}>
-        <Reveal>
-          <div style={{ background: "white", color: "black", padding: "60px", borderRadius: "40px", textAlign: "center" }}>
-            <h2 style={{ fontSize: "40px", fontWeight: "800" }}>Scroll Animation Working</h2>
-            <p>Ye neeche se upar aa raha hai</p>
-          </div>
-        </Reveal>
-      </div>
-    </div>
-  )
-}
+      <h1 className="relative z-10 text-[48px] md:text-[72px] font-black leading-[0.9] tracking-tight">
+        <span className="text-white">We Build </span>
+        <span className="bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent">Websites</span>
+        <span className="text-white block mt-1">That Bring Orders</span>
+      </h1>
+
+      <p className="relative z-10 mt-6 text-[14px] text-white/30 max-w-xl">
+        Premium AI Automations & High-converting designs.
+      </p>
+
+      <button onClick={onOrderClick} className="relative z-10 mt-8 bg-white text-black px-8 py-3.5 rounded-full font-bold text-[13px] shadow-[0_0_30px_rgba(255,255,255,0.4)] hover:scale-105 transition-transform">
+        Get Your Website 🚀
+      </button>
+
+      <p className="relative z-10 mt-4 text-[9px] tracking-[0.2em] text-white/20 uppercase">Hover on button to see magic ✨</p>
+    </section>
+  );
+};
