@@ -1,3 +1,4 @@
+const cardRef = useRef(null)
 "use client"
 import { useEffect, useRef } from "react"
 
