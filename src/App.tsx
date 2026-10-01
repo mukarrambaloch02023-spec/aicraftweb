@@ -1,45 +1,46 @@
 "use client"
 
-export default function Page() {
-  const handleOrder = () => {
-    alert("Order received 🚀");
-  }
-
+const Hero = ({ onOrderClick }: any) => {
   return (
-    <main style={{background:"#070A14", minHeight:"100vh", color:"white"}}>
-      
-      <section style={{minHeight:"100vh", display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center", textAlign:"center", padding:"20px", position:"relative", overflow:"hidden"}}>
+    <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 overflow-hidden bg-[#070A14]">
 
-        {/* Glow */}
-        <div style={{position:"absolute", top:"-10%", left:"20%", width:"600px", height:"600px", background:"rgba(109,40,217,0.3)", borderRadius:"50%", filter:"blur(150px)"}}></div>
-        <div style={{position:"absolute", bottom:"-10%", right:"15%", width:"600px", height:"600px", background:"rgba(37,99,235,0.25)", borderRadius:"50%", filter:"blur(150px)"}}></div>
+      <style>{`
+        @keyframes float1 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(0,-30px)} }
+        @keyframes float2 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(0,30px)} }
+      `}</style>
 
-        <div style={{position:"relative", zIndex:10, display:"flex", flexDirection:"column", alignItems:"center"}}>
+      <div style={{animation:'float1 6s ease-in-out infinite'}} className="absolute top-[-10%] left-[20%] w-[600px] h-[600px] bg-[#6d28d9]/30 rounded-full blur-[150px] pointer-events-none"></div>
+      <div style={{animation:'float2 7s ease-in-out infinite'}} className="absolute bottom-[-10%] right-[15%] w-[600px] h-[600px] bg-[#2563eb]/25 rounded-full blur-[150px] pointer-events-none"></div>
 
-          <div style={{display:"inline-flex", alignItems:"center", gap:"8px", padding:"6px 16px", borderRadius:"999px", background:"rgba(255,255,255,0.06)", border:"1px solid rgba(255,255,255,0.1)", fontSize:"10px", letterSpacing:"2px", color:"rgba(255,255,255,0.6)", marginBottom:"32px"}}>
-            ✨ AI POWERED AGENCY
-          </div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[#070A14] blur-[50px] pointer-events-none"></div>
 
-          <h1 style={{fontSize:"clamp(40px, 6vw, 72px)", fontWeight:900, lineHeight:0.9, letterSpacing:"-2px"}}>
-            <span style={{color:"white"}}>We Build </span>
-            <span style={{background:"linear-gradient(to right, #a78bfa, #22d3ee)", WebkitBackgroundClip:"text", color:"transparent"}}>Websites</span>
-            <span style={{color:"white", display:"block", marginTop:"4px"}}>That Bring Orders</span>
-          </h1>
+      <div className="relative z-10 inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.06] border border-white/10 text-[10px] tracking-widest text-white/60 mb-8">
+        ✨ AI POWERED AGENCY
+      </div>
 
-          <p style={{marginTop:"24px", fontSize:"14px", color:"rgba(255,255,255,0.3)", maxWidth:"500px"}}>
-            Premium AI Automations & High-converting designs.
-          </p>
+      <h1 className="relative z-10 text-[48px] md:text-[72px] font-black leading-[0.9] tracking-tight">
+        <span className="text-white">We Build </span>
+        <span className="bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent">Websites</span>
+        <span className="text-white block mt-1">That Bring Orders</span>
+      </h1>
 
-          <button onClick={handleOrder} style={{marginTop:"32px", background:"white", color:"black", padding:"14px 32px", borderRadius:"999px", fontWeight:700, fontSize:"13px", border:"none", cursor:"pointer", boxShadow:"0 0 30px rgba(255,255,255,0.4)", transition:"0.2s"}} 
-          onMouseEnter={(e)=> e.currentTarget.style.transform="scale(1.05) translateZ(20px)"}
-          onMouseLeave={(e)=> e.currentTarget.style.transform="scale(1)"}
-          >
-            Get Your Website 🚀
-          </button>
+      <p className="relative z-10 mt-6 text-[14px] text-white/30 max-w-xl">
+        Premium AI Automations & High-converting designs.
+      </p>
 
-          <p style={{marginTop:"16px", fontSize:"9px", letterSpacing:"3px", color:"rgba(255,255,255,0.2)"}}>HOVER ON BUTTON ✨</p>
-        </div>
-      </section>
+      <button onClick={onOrderClick} className="relative z-10 mt-8 bg-white text-black px-8 py-3.5 rounded-full font-bold text-[13px] shadow-[0_0_30px_rgba(255,255,255,0.4)] hover:scale-105 transition-transform cursor-pointer">
+        Get Your Website 🚀
+      </button>
+
+      <p className="relative z-10 mt-4 text-[9px] tracking-[0.2em] text-white/20 uppercase">Hover on button to see magic ✨</p>
+    </section>
+  );
+};
+
+export default function Page() {
+  return (
+    <main className="bg-[#070A14]">
+      <Hero onOrderClick={() => alert("Button Working! 🚀")} />
     </main>
   )
 }
