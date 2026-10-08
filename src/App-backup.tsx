@@ -11,6 +11,7 @@ import { AboutSection } from './components/home/AboutSection';
 import { ContactSection } from './components/home/ContactSection';
 import { Footer } from './components/common/Footer';
 import { FloatingWhatsApp } from './components/common/FloatingWhatsApp';
+import { GlobalGrid } from "./GlobalGrid";
 import { AdminLayout } from './components/admin/AdminLayout';
 import { AdminLoginPage } from './components/admin/AdminLoginPage';
 import { SinglePageAdminSection } from './components/admin/SinglePageAdminSection';
@@ -31,10 +32,6 @@ import {
 } from './utils/storage';
 import { Order, ServicePackage, Client, AdminSettings } from './types';
 
-// ===================================================================
-// PUBLIC HOMEPAGE COMPONENT (ROUTE: /)
-// Clean modern agency homepage. No admin link visible to public users.
-// ===================================================================
 interface PublicHomeProps {
   settings: AdminSettings;
   services: ServicePackage[];
@@ -54,7 +51,7 @@ const PublicHomePage: React.FC<PublicHomeProps> = ({
   const searchParams = new URLSearchParams(location.search);
   const isAdminMode =
     searchParams.get('admin') === 'true' ||
-    (typeof window !== 'undefined' && window.location.search.includes('admin=true'));
+    (typeof window!== 'undefined' && window.location.search.includes('admin=true'));
 
   const [selectedBudget, setSelectedBudget] = useState<number>(10000);
   const [selectedPackageName, setSelectedPackageName] = useState<string>('Pro');
@@ -79,8 +76,7 @@ const PublicHomePage: React.FC<PublicHomeProps> = ({
   };
 
   return (
-    <div className="min-h-screen bg-[#070D1F] text-slate-100 flex flex-col font-sans selection:bg-cyan-500/30 selection:text-cyan-200">
-      {/* Top Banner: Only visible when ?admin=true */}
+<div className="min-h-screen bg-transparent text-slate-100 flex flex-col font-sans selection:bg-cyan-500/30 selection:text-cyan-200 relative">      <GlobalGrid />
       {isAdminMode && (
         <div className="bg-[#050C1F] border-b border-cyan-500/50 px-4 py-2 text-xs font-mono text-cyan-300 flex items-center justify-between z-50 sticky top-0 shadow-[0_4px_20px_rgba(0,0,0,0.5)]">
           <div className="flex items-center gap-2">
@@ -99,7 +95,6 @@ const PublicHomePage: React.FC<PublicHomeProps> = ({
         </div>
       )}
 
-      {/* Header */}
       <Header
         onNavigate={scrollToSection}
         customLogoUrl={settings.customLogoUrl}
@@ -108,58 +103,39 @@ const PublicHomePage: React.FC<PublicHomeProps> = ({
       />
 
       <main className="flex-1">
-        {/* Hero Section */}
         <Hero
           settings={settings}
           onOrderClick={() => scrollToSection('pricing')}
         />
-
-        {/* Services Section (Basic, Pro, Premium) */}
         <ServicesSection />
-
-        {/* Fixed Pricing Plans (Basic 5000, Pro 10000, Premium 20000) */}
         <PricingPlans
           services={services}
           onSelectPlan={handleSelectPackage}
         />
-
-        {/* Interactive Money Meter */}
         <BudgetMeter onSelectBudget={handleSelectBudgetFromMeter} />
-
-        {/* Security Trust Section */}
         <SecuritySection />
-
-        {/* Order Form */}
         <OrderForm
           settings={settings}
           selectedBudget={selectedBudget}
           selectedPackageName={selectedPackageName}
           onOrderSubmitted={onOrderSubmitted}
         />
-
-        {/* About Section */}
         <AboutSection
           settings={settings}
           onOrderClick={() => scrollToSection('pricing')}
         />
-
-        {/* Direct Contact Section */}
         <ContactSection settings={settings} />
-
-        {/* Single Page Admin Section: ONLY visible when ?admin=true */}
         {isAdminMode && (
           <SinglePageAdminSection onOrderUpdated={onUpdateOrders} />
         )}
       </main>
 
-      {/* Public Footer */}
       <Footer
         settings={settings}
         onNavigate={scrollToSection}
         customLogoUrl={settings.customLogoUrl}
       />
 
-      {/* Floating Action Button: View Orders (Only visible when ?admin=true) */}
       {isAdminMode && (
         <div className="fixed bottom-6 left-6 z-50">
           <button
@@ -175,16 +151,11 @@ const PublicHomePage: React.FC<PublicHomeProps> = ({
         </div>
       )}
 
-      {/* Floating WhatsApp Live Chat (Phone / WhatsApp: 03097425011) */}
       <FloatingWhatsApp settings={settings} />
     </div>
   );
 };
 
-// ===================================================================
-// ADMIN ROUTE COMPONENT (ROUTE: /admin)
-// Hidden private dashboard with login (admin@aicraftweb.com / admin123)
-// ===================================================================
 interface AdminRouteProps {
   orders: Order[];
   clients: Client[];
@@ -213,10 +184,8 @@ const AdminRouteWrapper: React.FC<AdminRouteProps> = ({
     return localStorage.getItem('aicraft_admin_authenticated') === 'true';
   });
 
-  // Dedicated admin orders state loaded directly from localStorage key "aicraft_orders"
   const [orders, setOrders] = useState<Order[]>([]);
 
-  // 2. In /admin dashboard, read from localStorage key "aicraft_orders" on mount
   useEffect(() => {
     const loadOrdersFromStorage = () => {
       try {
@@ -237,7 +206,6 @@ const AdminRouteWrapper: React.FC<AdminRouteProps> = ({
 
     loadOrdersFromStorage();
 
-    // Listen to storage events so orders placed from / homepage reflect immediately
     const handleStorageChange = () => {
       loadOrdersFromStorage();
     };
@@ -250,7 +218,7 @@ const AdminRouteWrapper: React.FC<AdminRouteProps> = ({
     setOrders(newOrders);
     try {
       localStorage.setItem('aicraft_orders', JSON.stringify(newOrders));
-      if (typeof window !== 'undefined') {
+      if (typeof window!== 'undefined') {
         window.dispatchEvent(new Event('storage'));
       }
     } catch (e) {
@@ -297,9 +265,6 @@ const AdminRouteWrapper: React.FC<AdminRouteProps> = ({
   );
 };
 
-// ===================================================================
-// ROOT APP COMPONENT (ROUTER)
-// ===================================================================
 export default function App() {
   const [orders, setOrders] = useState<Order[]>([]);
   const [services, setServices] = useState<ServicePackage[]>([]);
@@ -344,16 +309,15 @@ export default function App() {
 
   const handleOrderSubmitted = (newOrder: Order) => {
     const raw = localStorage.getItem('aicraft_orders');
-    const existing: Order[] = raw ? JSON.parse(raw) : orders;
-    const updated = [newOrder, ...existing];
+    const existing: Order[] = raw? JSON.parse(raw) : orders;
+    const updated = [newOrder,...existing];
     setOrders(updated);
     saveOrders(updated);
 
-    // Register or update client record
     const clientName = newOrder.clientName || newOrder.name || 'Client';
     const clientEmail = newOrder.email || '';
     const clientPhone = newOrder.whatsapp || newOrder.phone || '';
-    const price = newOrder.totalPrice ?? newOrder.budget ?? 0;
+    const price = newOrder.totalPrice?? newOrder.budget?? 0;
 
     const existingClient = clients.find(
       (c) => (clientEmail && c.email.toLowerCase() === clientEmail.toLowerCase()) || (clientPhone && c.whatsapp === clientPhone)
@@ -369,7 +333,7 @@ export default function App() {
         totalSpent: price,
         joinedDate: new Date().toISOString().split('T')[0],
       };
-      const updatedClients = [newClientRecord, ...clients];
+      const updatedClients = [newClientRecord,...clients];
       setClients(updatedClients);
       saveClients(updatedClients);
     }
@@ -377,8 +341,8 @@ export default function App() {
 
   return (
     <BrowserRouter>
+      <GlobalGrid />
       <Routes>
-        {/* ROUTE 1: / (Public Agency Homepage) */}
         <Route
           path="/"
           element={
@@ -391,8 +355,6 @@ export default function App() {
             />
           }
         />
-
-        {/* ROUTE 2: /admin (Hidden Admin Dashboard with Login) */}
         <Route
           path="/admin/*"
           element={
@@ -409,8 +371,6 @@ export default function App() {
             />
           }
         />
-
-        {/* Fallback to Public Homepage */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>
