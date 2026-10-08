@@ -76,8 +76,7 @@ const PublicHomePage: React.FC<PublicHomeProps> = ({
   };
 
   return (
-    <div className="min-h-screen bg-[#070D1F] text-slate-100 flex flex-col font-sans selection:bg-cyan-500/30 selection:text-cyan-200">
-      <GlobalGrid />
+<div className="min-h-screen bg-transparent text-slate-100 flex flex-col font-sans selection:bg-cyan-500/30 selection:text-cyan-200 relative">      <GlobalGrid />
       {isAdminMode && (
         <div className="bg-[#050C1F] border-b border-cyan-500/50 px-4 py-2 text-xs font-mono text-cyan-300 flex items-center justify-between z-50 sticky top-0 shadow-[0_4px_20px_rgba(0,0,0,0.5)]">
           <div className="flex items-center gap-2">
