@@ -1,46 +1,23 @@
-"use client"
-import Spline from '@splinetool/react-spline'
-
 export default function Page() {
   return (
-    <main className="bg-black text-white">
-      {/* HERO 3D */}
-      <section className="relative h-screen w-full">
-        <div className="absolute inset-0 z-0">
-          <Spline scene="https://prod.spline.design/6Wq1Q7YGyM-iab9i/scene.splinecode" />
+    <main style={{background:'black', color:'white'}}>
+      <div style={{height:'100vh', display:'flex', alignItems:'center', justifyContent:'space-between', padding:'50px'}}>
+        <div>
+          <h1 style={{fontSize:'70px', fontWeight:900, lineHeight:1}}>AICRAFTWEB<br/><span style={{color:'#8b5cf6'}}>3D WEBSITES</span></h1>
+          <p style={{marginTop:20, color:'gray'}}>Rs 5000 se shuru - Premium design</p>
+          <br/>
+          <a href="https://wa.me/923000000000" style={{background:'white', color:'black', padding:'15px 30px', borderRadius:30, fontWeight:'bold', textDecoration:'none'}}>WhatsApp Karo</a>
         </div>
 
-        <div className="relative z-10 flex h-full items-center px-10">
-          <div className="max-w-2xl">
-            <h1 className="text-7xl font-black leading-none">
-              AICRAFTWEB
-              <span className="block bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-                3D Websites
-              </span>
-            </h1>
-            <p className="mt-6 text-xl text-gray-300">
-              Hum aisi website banate hain jo customer lati hai. Rs 5000 se start.
-            </p>
-            <a href="https://wa.me/923000000000" className="mt-8 inline-block rounded-full bg-white px-8 py-4 font-bold text-black">
-              WhatsApp Karo
-            </a>
+        {/* 3D FLOATING LAPTOP CSS */}
+        <div style={{width:'500px', height:'500px', perspective:'1000px'}}>
+          <div style={{width:'100%', height:'100%', background:'linear-gradient(135deg, #667eea, #764ba2)', borderRadius:'40px', transform:'rotateY(-20deg) rotateX(15deg)', boxShadow:'0 50px 100px rgba(102,126,234,0.5)', display:'flex', alignItems:'center', justifyContent:'center', fontSize:'100px', animation:'float 3s infinite ease-in-out'}}>
+            💻
           </div>
         </div>
-      </section>
+      </div>
 
-      {/* PACKAGES 3D CARDS */}
-      <section className="grid grid-cols-3 gap-6 p-10">
-        {[
-          { price: "5000", name: "Starter" },
-          { price: "15000", name: "Business" },
-          { price: "25000", name: "Premium" },
-        ].map((p) => (
-          <div key={p.price} className="rounded-[30px] border border-white/10 bg-white/5 p-8 backdrop-blur-xl hover:-translate-y-2 transition">
-            <h3 className="text-2xl">{p.name}</h3>
-            <p className="mt-2 text-5xl font-bold">Rs {p.price}</p>
-          </div>
-        ))}
-      </section>
+      <style>{`@keyframes float { 0%,100%{transform:rotateY(-20deg) rotateX(15deg) translateY(0)} 50%{transform:rotateY(-20deg) rotateX(15deg) translateY(-20px)} }`}</style>
     </main>
   )
 }
