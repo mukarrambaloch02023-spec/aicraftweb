@@ -1,46 +1,38 @@
-"use client"
-import Spline from '@splinetool/react-spline'
-
-export default function Page() {
+export const Hero = ({ onOrderClick }: any) => {
   return (
-    <main className="bg-black text-white">
-      {/* HERO 3D */}
-      <section className="relative h-screen w-full">
-        <div className="absolute inset-0 z-0">
-          <Spline scene="https://prod.spline.design/6Wq1Q7YGyM-iab9i/scene.splinecode" />
-        </div>
+    <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 overflow-hidden bg-[#070A14]">
 
-        <div className="relative z-10 flex h-full items-center px-10">
-          <div className="max-w-2xl">
-            <h1 className="text-7xl font-black leading-none">
-              AICRAFTWEB
-              <span className="block bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-                3D Websites
-              </span>
-            </h1>
-            <p className="mt-6 text-xl text-gray-300">
-              Hum aisi website banate hain jo customer lati hai. Rs 5000 se start.
-            </p>
-            <a href="https://wa.me/923000000000" className="mt-8 inline-block rounded-full bg-white px-8 py-4 font-bold text-black">
-              WhatsApp Karo
-            </a>
-          </div>
-        </div>
-      </section>
+      <style>{`
+        @keyframes float1 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(0,-30px)} }
+        @keyframes float2 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(0,30px)} }
+      `}</style>
 
-      {/* PACKAGES 3D CARDS */}
-      <section className="grid grid-cols-3 gap-6 p-10">
-        {[
-          { price: "5000", name: "Starter" },
-          { price: "15000", name: "Business" },
-          { price: "25000", name: "Premium" },
-        ].map((p) => (
-          <div key={p.price} className="rounded-[30px] border border-white/10 bg-white/5 p-8 backdrop-blur-xl hover:-translate-y-2 transition">
-            <h3 className="text-2xl">{p.name}</h3>
-            <p className="mt-2 text-5xl font-bold">Rs {p.price}</p>
-          </div>
-        ))}
-      </section>
-    </main>
-  )
-}
+      {/* Pehle wala same background - bas ab hilega */}
+      <div style={{animation:'float1 6s ease-in-out infinite'}} className="absolute top-[-10%] left-[20%] w-[600px] h-[600px] bg-[#6d28d9]/30 rounded-full blur-[150px] pointer-events-none"></div>
+      <div style={{animation:'float2 7s ease-in-out infinite'}} className="absolute bottom-[-10%] right-[15%] w-[600px] h-[600px] bg-[#2563eb]/25 rounded-full blur-[150px] pointer-events-none"></div>
+
+      {/* Center glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[#070A14] blur-[50px] pointer-events-none"></div>
+
+      <div className="relative z-10 inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.06] border border-white/10 text-[10px] tracking-widest text-white/60 mb-8">
+        ✨ AI POWERED AGENCY
+      </div>
+
+      <h1 className="relative z-10 text-[48px] md:text-[72px] font-black leading-[0.9] tracking-tight">
+        <span className="text-white">We Build </span>
+        <span className="bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent">Websites</span>
+        <span className="text-white block mt-1">That Bring Orders</span>
+      </h1>
+
+      <p className="relative z-10 mt-6 text-[14px] text-white/30 max-w-xl">
+        Premium AI Automations & High-converting designs.
+      </p>
+
+      <button onClick={onOrderClick} className="relative z-10 mt-8 bg-white text-black px-8 py-3.5 rounded-full font-bold text-[13px] shadow-[0_0_30px_rgba(255,255,255,0.4)] hover:scale-105 transition-transform">
+        Get Your Website 🚀
+      </button>
+
+      <p className="relative z-10 mt-4 text-[9px] tracking-[0.2em] text-white/20 uppercase">Hover on button to see magic ✨</p>
+    </section>
+  );
+};
