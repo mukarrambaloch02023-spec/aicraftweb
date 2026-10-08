@@ -2,8 +2,7 @@ import React from 'react';
 
 export const GlobalGrid = () => {
   return (
-    <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
-      <div className="absolute inset-0 bg-[#070D1F]" />
+<div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">      <div className="absolute inset-0 bg-[#070D1F]" />
       <div
         className="absolute inset-0 opacity-20"
         style={{
