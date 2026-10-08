@@ -1,4 +1,4 @@
-export default function SecuritySection() {
+export function SecuritySection() {
   return (
     <div className="relative w-full bg-[#080F25] py-24 px-6 overflow-hidden border-y border-blue-900/20">
 
